@@ -81,7 +81,56 @@ class LinkedList:
 
 linked_list = LinkedList(nodes=["argentina", "armenia", "barbados"])
 linked_list.add_last(Node("england"))
+linked_list.add_last(Node("england"))
 linked_list.add_after("barbados", Node("ireland"))
+print("********************************")
+print("linked list:", linked_list)
+print("********************************")
+#for __iter__
 for node in linked_list:
-    print(node)
+   ...
 
+
+
+"""
+Remove Dups: Write code to remove duplicates from an unsorted linked list.
+
+"""
+
+
+def delete_duplicates(linked_list):
+    data_list = []
+    node = linked_list.head
+    previous = None
+    while node:
+        if node.data in data_list:
+            previous.next = node.next
+        else:
+            data_list.append(node.data)
+            previous = node
+        node = node.next
+    
+    return linked_list
+
+
+
+"""
+Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list
+
+"""
+
+
+def print_k_to_last(linked_list, k):
+    
+    node = linked_list.head
+    if node is None:
+        return None
+    index = 0
+    while node:
+        if k<=index:
+            print(node)
+        index += 1
+        node = node.next
+
+print("-----------------------------------------------")
+print_k_to_last(linked_list=linked_list, k=3)
